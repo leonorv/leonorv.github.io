@@ -4,7 +4,8 @@
 #EFE9AE - light green
 #CDEAC0 - tea green
 #FFAC81 - salmon
-#2b2b2a - almost black*/
+#2b2b2a - almost black
+#f1f1f1 - almost white */
 
 /*.header {
   color: plum;
@@ -16,7 +17,8 @@
 }*/
 body {
     font-family: "Lato", sans-serif;
-    background-color: #D5AC8E;
+    /*background-color: #D5AC8E;*/
+    background-color: #FEC3A6;
   }
 
   img {
@@ -102,7 +104,7 @@ body {
 .card2 {
   background-color: #241E25;
   overflow: hidden;
-  height: 150px;
+  height: 250px;
   width: 350px;
   position: absolute;
   left: 700px;
@@ -120,3 +122,55 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
+
+/* Add a black background color to the top navigation */
+.weatherCard {
+  background-color: #241E25;
+  overflow: hidden;
+  height: 250px;
+  width: 450px;
+  position: absolute;
+  left: 300px;
+  top: 350px;
+  border-radius: 5%;
+}
+
+
+.weatherCard h1 {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.weatherCard .location h2 {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  height: 270px;
+  width: 500px;
+}
+
+.weatherCard .temperature p {
+  color: #f2f2f2;
+  text-align: bottom;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  position: relative;
+  top: +100px;
+}
+
+.weatherCard .temperature .temperature-description {
+  
+}
+
+
+
