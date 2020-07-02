@@ -19,9 +19,10 @@ window.addEventListener('load', ()=> {
             .then(data => {
                 console.log(data);
                 const {temp} = data.main;
+                const {} = data.weather;
                 //set elements from api
                 celsius = temp - 273.17; //K to C formula
-                temperatureDegree.textContent = String(celsius.toFixed(2));
+                temperatureDegree.textContent = String(celsius.toFixed(2)) + " C";
                 locationTimezone.textContent = data.name;
             })
         });

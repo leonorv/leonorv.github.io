@@ -1,0 +1,13 @@
+header {
+  position: relative;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Courier New', Courier, monospace;
+}
+body {
+  background-color: #FEC3A6;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
