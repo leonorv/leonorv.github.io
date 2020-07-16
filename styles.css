@@ -145,6 +145,27 @@ body {
   font-weight: 300;
 }
 
+.snakeCard {
+  background-color: #241E25;
+  overflow: hidden;
+  height: 250px;
+  width: 450px;
+  position: absolute;
+  left: 300px;
+  top: 350px;
+  border-radius: 5%;
+}
+
+.snakeCard p, a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
 /* Add a black background color to the top navigation */
 .weatherCard {
   background-color: #241E25;
