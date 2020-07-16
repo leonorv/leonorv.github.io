@@ -1,6 +1,7 @@
 export default class Snake {
-    constructor(GRID_SIZE, colors) {
+    constructor(GRID_SIZE, colors, n_colors) {
         this.colors = colors;
+        this.n_colors = n_colors;
         this.xspeed = 1;
         this.yspeed = 0;
         this.gridSize = GRID_SIZE; 
@@ -11,7 +12,7 @@ export default class Snake {
 
     draw(context) {
         for(var i = 0; i < this.size; i++) {
-            context.fillStyle = this.colors[i%6];
+            context.fillStyle = this.colors[i%this.n_colors];
             context.fillRect(this.tail[i][0], this.tail[i][1], this.gridSize, this.gridSize);
             context.rect(this.tail[i][0], this.tail[i][1], this.gridSize, this.gridSize);
         }

@@ -7,13 +7,32 @@ import {
   SCREEN_HEIGHT,
   SCREEN_WIDTH,
   GRID_SIZE,
-  pride_colors
+  pride_colors,
+  trans_colors,
+  bi_colors
 } from "./constants.js";
 
 var canvas = document.getElementById("gameScreen");
 var context = canvas.getContext("2d");
 var startBtn = document.getElementById("startBtn");
+var transBtn = document.getElementById("transBtn");
+var biBtn = document.getElementById("biBtn");
+var snake_color = pride_colors;
+var n_colors = 6;
 startBtn.onclick = init;
+transBtn.onclick = changeToTransColors;
+biBtn.onclick = changeToBiColors;
+
+
+function changeToTransColors() {
+  snake_color = trans_colors;
+  n_colors = 3;
+}
+
+function changeToBiColors() {
+  snake_color = bi_colors;
+  n_colors = 3;
+}
 
 var fps = 20;
 function animate(gameLoop) {
@@ -26,7 +45,7 @@ function init() {
   startBtn.style.display = "none";
 
 
-  var s = new Snake(GRID_SIZE, pride_colors);
+  var s = new Snake(GRID_SIZE, snake_color, n_colors);
   var f = new Food(GRID_SIZE);
   var inputHandler = new InputHandler(s);
   var game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT, GRID_SIZE, s, f);
