@@ -7,19 +7,16 @@
 #2b2b2a - almost black
 #f1f1f1 - almost white */
 
-/*.header {
-  color: plum;
-  text-align: center;
-  font-family: FreeMono, monospace;
-  font-size: 30;
-  background-color: #2b2b2a;
-
-}*/
+/*LOTTE COLOR SCHEME:
+#DCD5D2 - light grey
+#5A5C8C - dark blue
+#946279 - dark purple
+#CEA571 - whisky*/
 
 body {
     font-family: "Lato", sans-serif;
-    /*background-color: #D5AC8E;*/
-    background-color: #FEC3A6;
+    /*background-color: #FEC3A6;*/
+    background-color: #DCD5D2;
   }
 
   img {
@@ -34,7 +31,8 @@ body {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #241E25; /* Coral */
+    /*background-color: #241E25; /* katsuragu black*/
+    background-color: #5A5C8C;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
     text-align: center;
@@ -80,7 +78,7 @@ body {
 
 /* Add a black background color to the top navigation */
 .card1 {
-  background-color: #241E25;
+  background-color: #946279;
   overflow: hidden;
   height: 250px;
   width: 350px;
@@ -103,7 +101,7 @@ body {
 
 /* Add a black background color to the top navigation */
 .card2 {
-  background-color: #241E25;
+  background-color: #946279;
   overflow: hidden;
   height: 250px;
   width: 350px;
@@ -125,7 +123,7 @@ body {
 }
 
 .teamMakerCard {
-  background-color: #241E25;
+  background-color: #946279;
   overflow: hidden;
   height: 350px;
   width: 250px;
@@ -146,7 +144,7 @@ body {
 }
 
 .snakeCard {
-  background-color: #241E25;
+  background-color: #946279;
   overflow: hidden;
   height: 250px;
   width: 450px;
@@ -168,7 +166,7 @@ body {
 
 /* Add a black background color to the top navigation */
 .weatherCard {
-  background-color: #241E25;
+  background-color: #5A5C8C;
   overflow: hidden;
   height: 250px;
   width: 450px;
