@@ -1,213 +1,113 @@
-/* COLORSCHEME:
-#FF928B - hard coral
-#FEC3A6 - light pink
-#EFE9AE - light green
-#CDEAC0 - tea green
-#FFAC81 - salmon
-#2b2b2a - almost black
-#f1f1f1 - almost white */
-
-/*LOTTE COLOR SCHEME:
-#DCD5D2 - light grey
-#5A5C8C - dark blue
-#946279 - dark purple
-#CEA571 - whisky*/
-
-body {
-    font-family: "Lato", sans-serif;
-    /*background-color: #FEC3A6;*/
-    background-color: #DCD5D2;
-  }
-
-  img {
+img {
     border-radius: 50%;
   }
+html, body {
+    margin: 0;
+    padding: 0;
+  }
 
-/* The sidebar menu */
-.sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 250px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    /*background-color: #241E25; /* katsuragu black*/
-    background-color: #5A5C8C;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-    text-align: center;
+  /* use viewport-relative units to cover page fully */
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* include border and padding in element width and height */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  background-color: #F5A6A0;
+  text-decoration: none;
+  color: black;
+}
+
+table, td, tr {
+  margin: auto;
+  border-spacing: 20px;
+  font-size: 15px;
+  font-family: 'Cardo';
+  font-weight: 400;
+  color: black;
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: minmax(150px, 20%) 1fr;
+    height: 100%;
+    width: 100%;
+  }
+
+.parent .sidenav {
+  position: relative;
+  background-color: white;
+  text-align: center;
+}
+
+.parent .sidepage {
+  display: grid;
+  grid-template-rows: minmax(100px, 50%) 1fr;
+  overflow-y: scroll;
+}
+
+.parent .sidepage h1 {
+  font-size: 35px;
+  text-align: center;
+  text-decoration-color: #F5A6A0;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+
+.parent .sidepage p {
+  font-size: 18px;
+  font-family: 'Cardo';
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.parent .sidenav .credits {
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  overflow: hidden;
+}
+
+  .sidenav h1 {
+    font-size: 35px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: black;
+    text-decoration-color: #F5A6A0;
+    text-decoration-line: overline underline;
+    text-decoration-style: dashed;
+  }
+
+  .sidenav h2 {
+    font-size: 25px;
+    font-family: 'Cardo';
+    font-weight: 700;
+    color: black;
   }
 
   .sidenav p {
-    font-size: 25px;
+    font-size: 15px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    color: #f2f2f2;
+    font-weight: 400;
+    color: black;
   }
+
+.parent .sidepage .about-page {
+  background-color: #E7ECFF;
+}
+.parent .sidepage .projects-page {
+  background-color: #F4FFD9;
+}
   
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #CCC8C9;
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    
-  }
+
   
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Style page content */
-  .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
 
-
-
-/* Add a black background color to the top navigation */
-.card1 {
-  background-color: #946279;
-  overflow: hidden;
-  height: 250px;
-  width: 350px;
-  position: absolute;
-  left: 300px;
-  top: 50px;
-  border-radius: 5%;
-}
-
-/* Style the links inside the navigation bar */
-.card1 p {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 14px 16px;
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-/* Add a black background color to the top navigation */
-.card2 {
-  background-color: #946279;
-  overflow: hidden;
-  height: 250px;
-  width: 350px;
-  position: absolute;
-  left: 700px;
-  top: 50px;
-  border-radius: 5%;
-}
-
-/* Style the links inside the navigation bar */
-.card2 p {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 14px 16px;
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-.teamMakerCard {
-  background-color: #946279;
-  overflow: hidden;
-  height: 350px;
-  width: 250px;
-  position: absolute;
-  left: 800px;
-  top: 350px;
-  border-radius: 5%;
-}
-
-.teamMakerCard p, a {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 14px 16px;
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-.snakeCard {
-  background-color: #946279;
-  overflow: hidden;
-  height: 250px;
-  width: 450px;
-  position: absolute;
-  left: 300px;
-  top: 350px;
-  border-radius: 5%;
-}
-
-.snakeCard p, a {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 14px 16px;
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-/* Add a black background color to the top navigation */
-.weatherCard {
-  background-color: #5A5C8C;
-  overflow: hidden;
-  height: 250px;
-  width: 450px;
-  position: absolute;
-  left: 300px;
-  top: 350px;
-  border-radius: 5%;
-}
-
-.weatherCard h1 {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 14px 16px;
-  font-size: 22px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-.weatherCard .location h2 {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 14px 16px;
-  font-size: 22px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  position: relative;
-  top: -50px;
-}
-
-.weatherCard .temperature p {
-  color: #f2f2f2;
-  text-align: bottom;
-  font-size: 22px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  position: relative;
-  top: +100px;
-  left: -150px;
-}
 
 
 
