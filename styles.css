@@ -32,6 +32,12 @@ table, td, tr {
   color: black;
 }
 
+ul{
+  text-align: center;
+  padding: 0%;
+
+}
+
 
 .parent {
     display: grid;
@@ -48,7 +54,7 @@ table, td, tr {
 
 .parent .sidepage {
   display: grid;
-  grid-template-rows: minmax(100px, 50%) 1fr;
+  grid-template-rows: minmax(50%, 1fr) 1fr;
   overflow-y: scroll;
 }
 
@@ -98,11 +104,20 @@ table, td, tr {
     color: black;
   }
 
+  .sidenav .profile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+
 .parent .sidepage .about-page {
   background-color: #E7ECFF;
+  overflow-y: scroll;
 }
 .parent .sidepage .projects-page {
   background-color: #F4FFD9;
+  overflow-y: scroll;
 }
   
 
