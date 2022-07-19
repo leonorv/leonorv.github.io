@@ -3,21 +3,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Cardo:400" rel="stylesheet">
-  <style>
-    @font-face { font-family: Mangan; src: url('Mangan\ W03\ ExtraLight.ttf'); } 
-    h1 {
-       font-family: Mangan
+  <script type="text/javascript">
+    var s ="";
+    while (s!= "mypassword") {
+      s=prompt("please enter your password");
+      if (s=="mypassword") {
+        window.location.href="main.html"; //page to redirect if password entered is correct
+      }
+      else {
+        alert("Incorrect password-Try again");
+      }
     }
-  </style>
-  <body>
-      <h1>under progress...</h1>
-
-
-
-
-  </body>
+    </script>
 </html>
