@@ -1,18 +1,93 @@
-<!DOCTYPE html>
 <html>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script type="text/javascript">
-    var s ="";
-    while (s!= "mypassword") {
-      s=prompt("please enter your password");
-      if (s=="mypassword") {
-        window.location.href="main.html"; //page to redirect if password entered is correct
-      }
-      else {
-        alert("Incorrect password-Try again");
-      }
-    }
-    </script>
+    <head>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-assets>
+            <img id="mercury" src="mercury.webp">
+            <img id="venus"  src="venus.jpg">
+            <img id="earth"  src="earth.jpg">
+            <img id="mars"  src="mars.jpg">
+            <img id="jupiter" src="jupiter.jpg">
+            <img id="saturn" src="saturn.jpg">
+            <img id="uranus" src="uranus.jpg">
+        </a-assets>
+        <a-scene background="color: blue">
+        <a-sphere
+            color="yellow"
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="5 5 5">
+         </a-sphere>
+         <a-sphere
+            src="#mercury"
+            position="7 0 0"
+            rotation="0 0 0"
+            scale="1 1 1">
+         </a-sphere>
+         <a-sphere
+            src="#venus"
+            position="12 0 0"
+            rotation="0 0 0"
+            scale="2 2 2">
+         </a-sphere>
+         <a-sphere
+            src="#earth"
+            position="18 0 0"
+            rotation="0 0 0"
+            scale="2 2 2">
+         </a-sphere>
+         <a-sphere
+            src="#mars"
+            position="23 0 0"
+            rotation="0 0 0"
+            scale="1 1 1">
+         </a-sphere>
+         <a-sphere
+            src="#jupiter"
+            position="30 0 0"
+            rotation="0 0 0"
+            scale="3 3 3">
+        </a-sphere>
+        <a-entity id="saturn-container" position="37 0 0">
+            <a-sphere
+                src="#saturn"
+                position="0 0 0"
+                rotation="0 0 0"
+                scale="2 2 2">
+            </a-sphere>
+            <a-torus
+                id="saturn-ring-1"
+                color="grey"
+                segments-tubular="50" 
+                radius="3.2"
+                radius-tubular="0.1"
+                rotation="100 100 100">
+            </a-torus>
+        </a-entity>
+        <a-entity id="uranus-container" position="44 0 0">
+            <a-sphere
+                    src="#uranus"
+                    position="0 0 0"
+                    rotation="0 0 0"
+                    scale="2 2 2">
+            </a-sphere>
+            <a-torus
+                id="uranus-container"
+                color="grey"
+                segments tubular="50"
+                radius="3.2"
+                radius-tubular="0.1"
+                rotation="100 100 100">
+            </a-torus>
+            </a-entity>
+        <a-sphere
+            src="#uranus"
+            position="52 0 0"
+            rotation="0 0 0"
+            scale="2 2 2">
+        </a-sphere>
+        </a-scene>
+    
+    </body>
 </html>
