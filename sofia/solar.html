@@ -1,6 +1,7 @@
 <html>
     <head>
-        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+        <script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstick-controls.js"></script>
     </head>
     <body>
         <a-scene backgound="#04030F" light="defaultLightsEnabled: false">
@@ -11,6 +12,13 @@
                 <img id="cry" src="cry.jpg">
                 <img id="pretty" src="pretty.jpg">
             </a-assets>
+
+            <a-entity id="rig">
+                <a-camera position="0 1.6 0"></a-camera>
+                <a-entity oculus-touch-controls="hand: left" ></a-entity>
+                <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+              </a-entity>
+
             <a-sky src="#sky"></a-sky>
             <a-sphere material="shader: flat" position="0 0 -50"  light="type: point; color: #EAE9E6" radius="60.8" ></a-sphere>
             <a-entity 

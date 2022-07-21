@@ -1,6 +1,7 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstick-controls.js"></script>
     </head>
     <body>
         <a-assets>
@@ -14,6 +15,12 @@
             <img id="ceu" src="ceu.png">
         </a-assets>
         <a-scene background="color: blue">
+
+            <a-entity id="rig">
+                <a-camera position="0 1.6 0"></a-camera>
+                <a-entity oculus-touch-controls="hand: left" ></a-entity>
+                <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+              </a-entity>
   
         <a-sphere
             color="yellow"
