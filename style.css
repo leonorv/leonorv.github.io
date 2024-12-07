@@ -1,0 +1,185 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+:root {
+  --pink: #ECDFCC;
+  --white: #f6f1f0;
+  --shadow: #ECDFCC;
+  --dark-green: #2e4d32
+}
+
+
+@font-face {
+  font-family: basiic;
+  src: url(basiic.ttf);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--pink);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}
+
+
+
+body {
+  background-image: url('background.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+  font-family: basiic;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Dotted red border */
+hr.custom {
+  border-top: 3px dotted #A5B68D;
+}
+
+.container .box {
+  display: flex;
+  gap: 5px 5px; /* row-gap column gap */
+  row-gap: 5px;
+  column-gap: 5px;
+  align-items: stretch
+}
+
+.container .box .box-row {
+  display: flex;
+  align-items: stretch
+}
+
+.container .box .box-cell {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.container .box .box-cell.me {
+  /* margin-left: 5%; */
+  width: 50%;
+  background-color: var(--white);
+  box-shadow: 2px 2px var(--shadow);
+  padding: 10px;
+}
+
+.games {
+  float: left;
+  margin: .5%;
+  width: 28%;
+  height: 200px;
+  padding: 1%;
+  background-color: var(--white);
+  overflow-y: scroll;
+  box-shadow: 2px 2px var(--shadow);
+}
+
+
+
+.books {
+  float: left;
+  margin: .5%;
+  width: 28%;
+  height: 200px;
+  padding: 1%;
+  background-color: var(--white);
+  overflow-y: scroll;
+  box-shadow: 2px 2px var(--shadow);
+
+}
+
+.movies {
+  float: left;
+  margin: .5%;
+  width: 28%;
+  height: 200px;
+  padding: 1%;
+  background-color: var(--white);
+  overflow-y: scroll;
+  box-shadow: 2px 2px var(--shadow);
+
+
+
+}
+
+.container .box .box-cell.stuff {
+  text-align: justify;
+  background-color: var(--white);
+  /* margin-left: 10px; */
+  box-shadow: 2px 2px var(--shadow);
+  padding: 10px;
+  width: 25%;
+  height: 300px;
+
+}
+
+
+.container .box .box-cell.updates {
+  background-color: var(--white);
+  /* margin-right: 10px; */
+  box-shadow: 2px 2px var(--shadow);
+  padding: 10px;
+  width: 25%;
+  height: 150px;
+
+
+}
+
+.clear-right {
+  clear: right;
+}
+
+.clear-none {
+  clear: none;
+}
+
+
+.clear-left {
+  clear: left;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.todos {
+  float: right;
+  width: 15%;
+  padding: 10px;
+  background-color: var(--white);
+  margin-top: 15px;
+  margin-right: 10px;
+  box-shadow: 2px 2px var(--shadow);
+
+}
+
+.blinkies {
+  float: right;
+  width: 15%;
+  padding: 10px;
+  margin-right: -200px;
+  margin-top: 200px;
+
+}
+
+
