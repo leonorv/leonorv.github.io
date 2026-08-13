@@ -1,87 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Leonor Veloso's blog — coming eventually.">
   <title>‧͙⁺˚*･༓☾　leo　☽༓･*˚⁺‧͙</title>
-  <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
+  <link rel="icon" type="image/png" href="favicon-64.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link href="style.css" rel="stylesheet" type="text/css" media="all">
-
 </head>
 
 <body>
 
+  <header class="site-header">
+    <img class="avatar" src="48085474.png" alt="Portrait of Leonor">
+    <h1>leo's homepage</h1>
+    <p class="tagline">PhD student · NLP · amateur artist</p>
+  </header>
 
   <div class="container">
-    <div class="box">
+    <div class="layout">
 
-      <div class="box-row">
+      <nav class="box-cell stuff site-nav" aria-label="Site">
+        <h2>stuff</h2>
+        <hr class="custom">
+        <ul>
+          <li><a href="index.html">⚘ home</a></li>
+          <li><a href="art.html">⚘ art</a></li>
+          <li><span class="current">⚘ blog</span></li>
+          <li><a href="https://github.com/leonorv" target="_blank" rel="noopener">⚘ github</a></li>
+          <li><a href="https://www.linkedin.com/in/leonor-veloso/" target="_blank" rel="noopener">⚘ linkedin</a></li>
+        </ul>
+      </nav>
 
-        <div class="box-cell stuff">
-          <h2><strong>stuff</strong></h2>
-          <hr class="custom">
-    
-          <ul>
-            <li><a href="index.html" target="frame">⚘ home</a></li>
-            <li><a href="art.html" target="frame">⚘ art</a></li>
-            <li><a href="blog.html" target="frame">⚘ blog</a></li>
-            <li><a href="https://github.com/leonorv" target="frame">⚘ github</a></li>
-            <li><a href="https://www.linkedin.com/in/leonor-veloso/" target="frame">⚘ linkedin</a></li>
-          </ul>
-        </div>
-    
-        <div class="box-cell me">
-          <p><strong>blog</strong> </p>
-          <hr class="custom">
-          <script>NekoType = "white"</script>
-          <h1 id=nl>
-            <script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a>
-          </h1>
-    
-          
-  
+      <main class="box-cell me">
+        <h2>blog</h2>
+        <hr class="custom">
+        <p class="empty-note">empty :(</p>
+      </main>
 
+      <aside class="box-cell updates">
+        <h2>updates</h2>
+        <hr class="custom">
+        <ul class="update-list">
+          <li class="update-entry">
+            <span class="update-date">13.08.2026</span>
+            <p>website glow-up! now responsive, and it no longer opens seventeen tabs when you click a link.</p>
+          </li>
+          <li class="update-entry">
+            <span class="update-date">02.12.2025</span>
+            <p>went to QueerInAI @ NeurIPS 2025 to present our <a href="https://arxiv.org/abs/2509.17449">in-progress dataset of queer slang</a></p>
+          </li>
+          <li class="update-entry">
+            <span class="update-date">15.08.2025</span>
+            <p>our team submitted results for the <a href="https://aclanthology.org/volumes/2025.blackboxnlp-1/">BlackboxNLP shared task</a>! we showed that augmenting the feature mixing stage with simple non-linearities improves faithfulness in DAS.</p>
+          </li>
+          <li class="update-entry">
+            <span class="update-date">07.12.2024</span>
+            <p>live! some links are broken</p>
+          </li>
+        </ul>
+      </aside>
 
-
-
-
-    
-        </div>  
-    
-    
-        <div class="box-cell updates">
-          <h2><strong>updates</strong></h2>
-          <hr class="custom">
-          <strong>08.01.2026</strong> website update! unsurprisingly, links are still broken<br><br>
-          <strong>02.12.2025</strong> went to QueerInAI @ NeurIPS 2025 to present our <a href="https://arxiv.org/abs/2509.17449">in-progress dataset of queer slang</a><br><br>
-          <strong>15.08.2025</strong> Our team submitted results for the <a href="https://aclanthology.org/volumes/2025.blackboxnlp-1/">BlackboxNLP shared task</a>! We showed that augmenting the feature mixing stage with simple non-linearities improves faithfulness in DAS. <br><br>
-          <strong>07.12.2024</strong> live! some links are broken<br>
-    
-        </div>
-
-      </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
 
+  <footer class="site-footer">
+    <p>© 2026 Leonor Veloso · built by hand, mostly on a train · <span class="neko-credit">cursor pet by <a href="https://webneko.net" target="_blank" rel="noopener">webneko.net</a></span></p>
+  </footer>
 
+  <script>NekoType = "white";</script>
+  <script src="https://webneko.net/n20171213.js"></script>
 
 </body>
 

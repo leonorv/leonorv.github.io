@@ -1,18 +1,128 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
+/* =============================================================
+   leo's homepage — stylesheet
 
-:root {
-  --pink: #ECDFCC;
-  --white: #f6f1f0;
-  --shadow: #ECDFCC;
-  --dark-green: #2e4d32
-}
+   Sections (search for the numbered headers to jump around):
+     1. Fonts & variables      6. Cards / boxes
+     2. Reset & base           7. Publications
+     3. Header                 8. Updates
+     4. Nav                    9. Gallery (art page)
+     5. Layout grid           10. Footer & misc
+                               11. Responsive breakpoints
 
+   Colors, spacing, and widths all live in the :root variables
+   below — change the look of the whole site from one place.
+   ============================================================= */
+
+/* ---------- 1. Fonts & variables ---------- */
 
 @font-face {
-  font-family: basiic;
-  src: url(basiic.ttf);
+  font-family: "basiic";
+  src: url("basiic.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  /* palette */
+  --sage: #a5b68d;
+  --sage-dark: #7f9468;
+  --cream: #ecdfcc;
+  --white: #ffffff;
+  --forest: #2e4d32;
+  --ink: #3a3a32;
+  --accent: #d3785f;
+  /* quirky pop color for tags / hovers */
+  --shadow-color: #ecdfcc;
+
+  /* type */
+  --font-display: "basiic", "Brush Script MT", cursive;
+  --font-body: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* spacing & shape, used everywhere so the whole site can be
+     tightened/loosened by editing these two lines */
+  --space: 1rem;
+  --radius: 12px;
+  --shadow: 3px 3px 0 var(--shadow-color);
+
+  /* layout widths (desktop) */
+  --nav-w: 190px;
+  --updates-w: 250px;
+  --max-width: 1180px;
+}
+
+/* ---------- 2. Reset & base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--sage);
+  background-image: url("background.jpg");
+  background-repeat: repeat;
+  background-size: 640px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 16px;
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--forest);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0 0 0.4em;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Dotted divider used throughout */
+hr.custom {
+  border: none;
+  border-top: 3px dotted var(--sage);
+  margin: 0.75em 0 1em;
 }
 
 /* width */
@@ -20,166 +130,286 @@
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: var(--white);
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--pink);
-}
-
-/* Handle on hover */
+::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--pink);
+  background: var(--sage);
 }
 
+/* ---------- 3. Header ---------- */
 
-
-body {
-  background-image: url('background.png');
-  background-repeat:no-repeat;
-  background-size:cover;
-  font-family: basiic;
-}
-
-h1 {
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem var(--space) 0.5rem;
   text-align: center;
 }
 
-/* Dotted red border */
-hr.custom {
-  border-top: 3px dotted #A5B68D;
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow);
+  margin: 0 auto 0.75rem;
 }
 
-.container .box {
+.site-header h1 {
+  margin-bottom: 0.15em;
+}
+
+.site-header .tagline {
+  margin: 0;
+  color: var(--forest);
+  font-style: italic;
+}
+
+/* ---------- 4. Nav ---------- */
+
+.site-nav ul {
   display: flex;
-  gap: 5px 5px; /* row-gap column gap */
-  row-gap: 5px;
-  column-gap: 5px;
-  align-items: stretch
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.container .box .box-row {
+.site-nav a,
+.site-nav span.current {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background-color: var(--cream);
+  color: var(--forest);
+}
+
+.site-nav span.current {
+  background-color: var(--sage);
+  color: var(--white);
+  font-weight: bold;
+}
+
+/* ---------- 5. Layout grid ---------- */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space) 2.5rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
+    "updates";
+  gap: var(--space);
+}
+
+/* Without this, grid tracks refuse to shrink below their content's
+   natural width (e.g. a long link), which pushes the layout wider
+   than the viewport on mobile. */
+.layout > .box-cell {
+  min-width: 0;
+}
+
+.layout > .box-cell.stuff {
+  grid-area: nav;
+}
+
+.layout > .box-cell.me {
+  grid-area: main;
+}
+
+.layout > .box-cell.updates {
+  grid-area: updates;
+}
+
+/* Two-column variant (nav + single main area), used on the art page */
+.layout.layout-2col {
+  grid-template-areas:
+    "nav"
+    "main";
+}
+
+.layout.layout-2col > .box-cell.main {
+  grid-area: main;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+@media (min-width: 900px) {
+  .layout.layout-2col {
+    grid-template-columns: var(--nav-w) 1fr;
+    grid-template-areas: "nav main";
+  }
+}
+
+/* ---------- 6. Cards / boxes ---------- */
+
+.box-cell {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.box-cell.stuff {
+  align-self: start;
+}
+
+/* ---------- 7. Publications ---------- */
+
+.pub-list {
   display: flex;
-  align-items: stretch
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 0;
 }
 
-.container .box .box-cell {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+.pub-entry {
+  padding-left: 0.9rem;
+  border-left: 3px dotted var(--sage);
 }
 
-.container .box .box-cell.me {
-  /* margin-left: 5%; */
-  width: 50%;
+.pub-entry .pub-title {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.pub-entry .pub-meta {
+  font-size: 0.92rem;
+  color: #5a5a4e;
+}
+
+.pub-entry .pub-links a {
+  font-size: 0.85rem;
+  margin-right: 0.6rem;
+}
+
+.pub-entry .pub-authors strong {
+  color: var(--forest);
+}
+
+/* ---------- 8. Updates ---------- */
+
+.update-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.update-entry .update-date {
+  display: inline-block;
+  color: var(--white);
+  background-color: var(--sage-dark);
+  border-radius: 6px;
+  padding: 0.05em 0.5em;
+  font-size: 0.8rem;
+  margin-bottom: 0.3em;
+}
+
+.update-entry p {
+  margin: 0;
+}
+
+/* ---------- 9. Gallery (art page) ---------- */
+
+.gallery {
+  column-count: 1;
+  column-gap: var(--space);
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: var(--space);
   background-color: var(--white);
-  box-shadow: 2px 2px var(--shadow);
-  padding: 10px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
-.games {
-  float: left;
-  margin: .5%;
-  width: 28%;
-  height: 200px;
-  padding: 1%;
-  background-color: var(--white);
-  overflow-y: scroll;
-  box-shadow: 2px 2px var(--shadow);
+.gallery-item img {
+  width: 100%;
+  height: auto;
 }
 
-
-
-.books {
-  float: left;
-  margin: .5%;
-  width: 28%;
-  height: 200px;
-  padding: 1%;
-  background-color: var(--white);
-  overflow-y: scroll;
-  box-shadow: 2px 2px var(--shadow);
-
+.gallery-item p {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.88rem;
+  text-align: center;
+  color: #5a5a4e;
 }
 
-.movies {
-  float: left;
-  margin: .5%;
-  width: 28%;
-  height: 200px;
-  padding: 1%;
-  background-color: var(--white);
-  overflow-y: scroll;
-  box-shadow: 2px 2px var(--shadow);
+/* ---------- 10. Footer & misc ---------- */
 
-
-
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem var(--space) 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--forest);
 }
 
-.container .box .box-cell.stuff {
-  text-align: justify;
-  background-color: var(--white);
-  /* margin-left: 10px; */
-  box-shadow: 2px 2px var(--shadow);
-  padding: 10px;
-  width: 25%;
-  height: 300px;
-
+.site-footer a {
+  color: var(--forest);
 }
 
-
-.container .box .box-cell.updates {
-  background-color: var(--white);
-  /* margin-right: 10px; */
-  box-shadow: 2px 2px var(--shadow);
-  padding: 10px;
-  width: 25%;
-  height: 350px;
-
-
+.neko-credit {
+  opacity: 0.75;
 }
 
-.clear-right {
-  clear: right;
+.empty-note {
+  color: #5a5a4e;
+  font-style: italic;
 }
 
-.clear-none {
-  clear: none;
+/* ---------- 11. Responsive breakpoints ---------- */
+
+/* Tablet and up: nav becomes a horizontal strip */
+@media (min-width: 640px) {
+  .site-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery {
+    column-count: 2;
+  }
 }
 
+/* Desktop: three-column layout, nav back to a vertical sidebar list */
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: var(--nav-w) 1fr var(--updates-w);
+    grid-template-areas: "nav main updates";
+    align-items: start;
+  }
 
-.clear-left {
-  clear: left;
+  .site-nav ul {
+    flex-direction: column;
+  }
+
+  .avatar {
+    width: 160px;
+    height: 160px;
+  }
+
+  .gallery {
+    column-count: 3;
+  }
 }
-
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.todos {
-  float: right;
-  width: 15%;
-  padding: 10px;
-  background-color: var(--white);
-  margin-top: 15px;
-  margin-right: 10px;
-  box-shadow: 2px 2px var(--shadow);
-
-}
-
-.blinkies {
-  float: right;
-  width: 15%;
-  padding: 10px;
-  margin-right: -200px;
-  margin-top: 200px;
-
-}
-
-
