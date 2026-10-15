@@ -8,10 +8,16 @@
   <title>‧͙⁺˚*･༓☾　leo　☽༓･*˚⁺‧͙</title>
   <link rel="icon" type="image/png" href="favicon-64.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>
+    // dark is the default; apply a saved light preference before first paint
+    try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}
+  </script>
   <link href="style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
+
+  <button class="theme-toggle" type="button" aria-label="Switch to light mode">☀</button>
 
   <header class="site-header">
     <img class="avatar" src="48085474.png" alt="Portrait of Leonor">
@@ -37,8 +43,6 @@
 
         <p>I'm a PhD student at <a href="https://cisnlp.github.io/">Center for Information and Language Processing (CIS)</a>, at <a href="https://www.lmu.de/en/">LMU</a>, and a Junior Member of <a href="https://mcml.ai/">MCML</a>. I'm advised by <a href="https://www.cis.uni-muenchen.de/schuetze/">Hinrich Schütze</a>.</p>
 
-        <p>This website is a perpetual work in progress where you can find my amateur sketches, work and research updates, and (someday) a blog.</p>
-
         <hr class="custom">
         <h2>about me</h2>
 
@@ -62,6 +66,13 @@
         <ul class="pub-list">
 
           <li class="pub-entry">
+            <p class="pub-title">SLAyiNG: A Diverse and Community-validated Dataset of Queer Slang</p>
+            <p class="pub-authors"><strong>Leonor Veloso</strong>, L. Hirlimann, L.M. Zidar, P. Wicke, V. Hofmann, H. Schütze</p>
+            <p class="pub-meta">(forthcoming) 40th Conference on Neural Information Processing Systems (NeurIPS 2026) E&D track</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2509.17449">[pdf]</a></p>
+          </li>
+
+          <li class="pub-entry">
             <p class="pub-title">GKnow: Measuring the Entanglement of Gender Bias and Factual Gender</p>
             <p class="pub-authors"><strong>Leonor Veloso</strong>, H. Schütze</p>
             <p class="pub-meta">Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026)</p>
@@ -82,12 +93,6 @@
             <p class="pub-links"><a href="https://aclanthology.org/volumes/2025.blackboxnlp-1/">[pdf]</a></p>
           </li>
 
-          <li class="pub-entry">
-            <p class="pub-title">SLAyiNG: Towards Queer Language Processing</p>
-            <p class="pub-authors"><strong>Leonor Veloso</strong>, L. Hirlimann, P. Wicke, H. Schütze</p>
-            <p class="pub-meta">arXiv preprint arXiv:2509.17449, 2025</p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2509.17449">[arxiv]</a></p>
-          </li>
 
 
         </ul>
@@ -104,6 +109,10 @@
           and put it first (newest on top).
         -->
         <ul class="update-list">
+          <li class="update-entry">
+            <span class="update-date">15.10.2026</span>
+            <p>our <a href="https://arxiv.org/abs/2509.17449">dataset of queer slang</a> was accepted to NeurIPS 2026 as a ✨spotlight✨!</p>
+          </li>
           <li class="update-entry">
             <span class="update-date">13.08.2026</span>
             <p>website revamp!</p>
@@ -131,9 +140,27 @@
   </div>
 
   <footer class="site-footer">
-    <p>© 2026 Leonor Veloso<span class="neko-credit">cursor pet by <a href="https://webneko.net" target="_blank" rel="noopener">webneko.net</a></span></p>
+    <p><span class="neko-credit">neko by <a href="https://webneko.net" target="_blank" rel="noopener">webneko.net</a></span></p>
   </footer>
 
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector(".theme-toggle");
+      function render() {
+        var light = root.dataset.theme === "light";
+        btn.textContent = light ? "☾" : "☀";
+        btn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+      }
+      btn.addEventListener("click", function () {
+        var light = root.dataset.theme !== "light";
+        if (light) root.dataset.theme = "light"; else delete root.dataset.theme;
+        try { localStorage.setItem("theme", light ? "light" : "dark"); } catch (e) {}
+        render();
+      });
+      render();
+    })();
+  </script>
   <script>NekoType = "white";</script>
   <script src="https://webneko.net/n20171213.js"></script>
 

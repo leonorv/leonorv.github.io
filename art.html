@@ -8,23 +8,27 @@
   <title>‧͙⁺˚*･༓☾　leo　☽༓･*˚⁺‧͙</title>
   <link rel="icon" type="image/png" href="favicon-64.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>
+    // dark is the default; apply a saved light preference before first paint
+    try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}
+  </script>
   <link href="style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
 
+  <button class="theme-toggle" type="button" aria-label="Switch to light mode">☀</button>
+
   <header class="site-header">
     <img class="avatar" src="48085474.png" alt="Portrait of Leonor">
     <h1>leo's homepage</h1>
-    <p class="tagline">PhD student · NLP · amateur artist</p>
+    <p class="tagline">lveloso [at] cis [dot] lmu [dot] de</p>
   </header>
 
   <div class="container">
     <div class="layout layout-2col">
 
       <nav class="box-cell stuff site-nav" aria-label="Site">
-        <h2>stuff</h2>
-        <hr class="custom">
         <ul>
           <li><a href="index.html">⚘ home</a></li>
           <li><span class="current">⚘ art</span></li>
@@ -83,9 +87,27 @@
   </div>
 
   <footer class="site-footer">
-    <p>© 2026 Leonor Veloso · built by hand, mostly on a train · <span class="neko-credit">cursor pet by <a href="https://webneko.net" target="_blank" rel="noopener">webneko.net</a></span></p>
+    <p><span class="neko-credit">neko by <a href="https://webneko.net" target="_blank" rel="noopener">webneko.net</a></span></p>
   </footer>
 
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector(".theme-toggle");
+      function render() {
+        var light = root.dataset.theme === "light";
+        btn.textContent = light ? "☾" : "☀";
+        btn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+      }
+      btn.addEventListener("click", function () {
+        var light = root.dataset.theme !== "light";
+        if (light) root.dataset.theme = "light"; else delete root.dataset.theme;
+        try { localStorage.setItem("theme", light ? "light" : "dark"); } catch (e) {}
+        render();
+      });
+      render();
+    })();
+  </script>
   <script>NekoType = "white";</script>
   <script src="https://webneko.net/n20171213.js"></script>
 

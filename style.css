@@ -11,6 +11,10 @@
 
    Colors, spacing, and widths all live in the :root variables
    below — change the look of the whole site from one place.
+
+   Theming: dark is the default (:root). The light theme overrides
+   the same color tokens under :root[data-theme="light"]. The toggle
+   button sets data-theme on <html> and remembers it in localStorage.
    ============================================================= */
 
 /* ---------- 1. Fonts & variables ---------- */
@@ -22,16 +26,28 @@
 }
 
 :root {
-  /* palette */
-  --sage: #a5b68d;
-  --sage-dark: #7f9468;
-  --cream: #ecdfcc;
-  --white: #ffffff;
-  --forest: #2e4d32;
-  --ink: #3a3a32;
-  --accent: #d3785f;
-  /* quirky pop color for tags / hovers */
-  --shadow-color: #ecdfcc;
+  color-scheme: dark;
+
+  /* dark theme (default) — night purple to match background_dark.jpg */
+  --page-bg: #4b3c63;
+  --bg-image: url("background_dark.jpg");
+  --card: #251e31;
+  --text: #e9e2f2;
+  --heading: #f3edfa;
+  --link: #c8b2ef;
+  --accent: #f2a7c3;
+  /* quirky pop color for hovers */
+  --muted: #b3a7c4;
+  --divider: #6d5a8f;
+  --hover-bg: #3a2f4d;
+  --hover-text: #f3edfa;
+  --current-bg: #6d5a8f;
+  --current-text: #ffffff;
+  --pill-bg: #5c4a7a;
+  --pill-text: #ffffff;
+  --frame: #251e31;
+  --shadow-color: #18121f;
+  --header-text: #f3edfa;
 
   /* type */
   --font-display: "basiic", "Brush Script MT", cursive;
@@ -49,6 +65,30 @@
   --max-width: 1180px;
 }
 
+/* light theme — the original sage & cream palette */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --page-bg: #a5b68d;
+  --bg-image: url("background.jpg");
+  --card: #ffffff;
+  --text: #3a3a32;
+  --heading: #3a3a32;
+  --link: #2e4d32;
+  --accent: #d3785f;
+  --muted: #5a5a4e;
+  --divider: #a5b68d;
+  --hover-bg: #ecdfcc;
+  --hover-text: #2e4d32;
+  --current-bg: #a5b68d;
+  --current-text: #ffffff;
+  --pill-bg: #7f9468;
+  --pill-text: #ffffff;
+  --frame: #ffffff;
+  --shadow-color: #ecdfcc;
+  --header-text: #2e4d32;
+}
+
 /* ---------- 2. Reset & base ---------- */
 
 *,
@@ -63,12 +103,12 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--sage);
-  background-image: url("background.jpg");
+  background-color: var(--page-bg);
+  background-image: var(--bg-image);
   background-repeat: repeat;
   background-size: 640px;
   font-family: var(--font-body);
-  color: var(--ink);
+  color: var(--text);
   line-height: 1.55;
   font-size: 16px;
   overflow-wrap: break-word;
@@ -80,7 +120,7 @@ img {
 }
 
 a {
-  color: var(--forest);
+  color: var(--link);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
@@ -95,6 +135,7 @@ h2,
 h3 {
   font-family: var(--font-display);
   font-weight: normal;
+  color: var(--heading);
   line-height: 1.25;
   margin: 0 0 0.4em;
 }
@@ -121,7 +162,7 @@ ul {
 /* Dotted divider used throughout */
 hr.custom {
   border: none;
-  border-top: 3px dotted var(--sage);
+  border-top: 3px dotted var(--divider);
   margin: 0.75em 0 1em;
 }
 
@@ -131,12 +172,12 @@ hr.custom {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--white);
+  background: var(--card);
 }
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--sage);
+  background: var(--divider);
 }
 
 /* ---------- 3. Header ---------- */
@@ -153,18 +194,19 @@ hr.custom {
   height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--white);
+  border: 3px solid var(--frame);
   box-shadow: var(--shadow);
   margin: 0 auto 0.75rem;
 }
 
 .site-header h1 {
+  color: var(--header-text);
   margin-bottom: 0.15em;
 }
 
 .site-header .tagline {
   margin: 0;
-  color: var(--forest);
+  color: var(--header-text);
   font-style: italic;
 }
 
@@ -187,13 +229,13 @@ hr.custom {
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  background-color: var(--cream);
-  color: var(--forest);
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
 }
 
 .site-nav span.current {
-  background-color: var(--sage);
-  color: var(--white);
+  background-color: var(--current-bg);
+  color: var(--current-text);
   font-weight: bold;
 }
 
@@ -258,7 +300,7 @@ hr.custom {
 /* ---------- 6. Cards / boxes ---------- */
 
 .box-cell {
-  background-color: var(--white);
+  background-color: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 1.25rem;
@@ -279,7 +321,7 @@ hr.custom {
 
 .pub-entry {
   padding-left: 0.9rem;
-  border-left: 3px dotted var(--sage);
+  border-left: 3px dotted var(--divider);
 }
 
 .pub-entry .pub-title {
@@ -289,7 +331,7 @@ hr.custom {
 
 .pub-entry .pub-meta {
   font-size: 0.92rem;
-  color: #5a5a4e;
+  color: var(--muted);
 }
 
 .pub-entry .pub-links a {
@@ -298,7 +340,7 @@ hr.custom {
 }
 
 .pub-entry .pub-authors strong {
-  color: var(--forest);
+  color: var(--link);
 }
 
 /* ---------- 8. Updates ---------- */
@@ -312,8 +354,8 @@ hr.custom {
 
 .update-entry .update-date {
   display: inline-block;
-  color: var(--white);
-  background-color: var(--sage-dark);
+  color: var(--pill-text);
+  background-color: var(--pill-bg);
   border-radius: 6px;
   padding: 0.05em 0.5em;
   font-size: 0.8rem;
@@ -334,7 +376,7 @@ hr.custom {
 .gallery-item {
   break-inside: avoid;
   margin-bottom: var(--space);
-  background-color: var(--white);
+  background-color: var(--card);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -350,7 +392,7 @@ hr.custom {
   padding: 0.6rem 0.8rem;
   font-size: 0.88rem;
   text-align: center;
-  color: #5a5a4e;
+  color: var(--muted);
 }
 
 /* ---------- 10. Footer & misc ---------- */
@@ -361,19 +403,42 @@ hr.custom {
   padding: 1rem var(--space) 2rem;
   text-align: center;
   font-size: 0.8rem;
-  color: var(--forest);
+  color: var(--header-text);
 }
 
 .site-footer a {
-  color: var(--forest);
+  color: var(--header-text);
 }
 
 .neko-credit {
   opacity: 0.75;
 }
 
+/* Light/dark toggle, pinned to the top-right corner */
+.theme-toggle {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--card);
+  color: var(--heading);
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--accent);
+}
+
 .empty-note {
-  color: #5a5a4e;
+  color: var(--muted);
   font-style: italic;
 }
 
